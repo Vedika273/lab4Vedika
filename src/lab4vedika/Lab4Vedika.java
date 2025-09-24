@@ -40,8 +40,6 @@ public class Lab4Vedika extends Application {
     @Override
     public void start(Stage stage){
         
-        TripInfo trip = new TripInfo(numOfDays, airFairAmount, carRentalFee, milesDriven, parkingFee, taxiCharges,registrationFee, lodgingCharge);
-        
         Label numOfDaysLabel = new Label("Number of Days : ");
         TextField days = new TextField();
         
@@ -95,6 +93,7 @@ public class Lab4Vedika extends Application {
      
         Scene scene = new Scene(root, 200, 200);
         stage.setScene(scene);
+        stage.setTitle("Travel expense Calculator");
         stage.show();
       
     }

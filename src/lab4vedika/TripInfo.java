@@ -15,7 +15,7 @@ public class TripInfo {
         
     public TripInfo(double numOfDays, double airFairAmount, double carRentalFee, double milesDriven, double parkingFee, double taxiCharges, double registrationFee, double lodgingCharge) 
     {
-    this.numOfDays = Double.parseDouble(days.getText()); 
+    this.numOfDays = numOfDays; 
     this.airFairAmount = airFairAmount; 
     this.carRentalFee = carRentalFee; 
     this.milesDriven = milesDriven; 
@@ -23,16 +23,32 @@ public class TripInfo {
     this.taxiCharges = taxiCharges; 
     this.registrationFee = registrationFee; 
     this.lodgingCharge = lodgingCharge; 
+    }
     
+    //total expense 
+    public double getTotalExpense() {
+        return airFairAmount + carRentalFee + registrationFee 
+                + (0.27 * milesDriven ) + parkingFee + 
+                taxiCharges  + (lodgingCharge * numOfDays) +
+                (numOfDays + 37);
+    }
+    
+    //allowed expense 
+    public double getAllowedExpense() {
+    return (numOfDays * 37) //meals
+            + (numOfDays * 10) 
+            + (numOfDays * 20)  // taxi
+            + (numOfDays * 95)  // lodging
+            + (milesDriven * 0.27)
+            + airFairAmount + carRentalFee + registrationFee;
+    }
+    
+    public double getTheExcess() {
+        return Math.max(0, getTotalExpense() - getAllowedExpense());
+    }
+
+    public double getSaved() {
+        return Math.max(0, getAllowedExpense() - getTotalExpense());
+    }
 }
-    public static void main (String[] args) {
-     numOfDays=  Double.parseDouble(days.getText());
-     airFairAmount = Double.parseDouble(airFair.getText());
-     carRentalFee = Double.parseDouble(carRental.getText());
-     milesDriven = Double.parseDouble(milesDriventxt.getText());
-     parkingFee = Double.parseDouble(parkingFeetxt.getText());
-     taxiCharges = Double.parseDouble(TAXI.getText());
-     registrationFee = Double.parseDouble(registration.getText());
-     lodgingCharge = Double.parseDouble(lodging.getText());
-} 
 }
