@@ -20,17 +20,7 @@ import javafx.stage.Stage;
  * @author 6303129
  */
 public class Lab4Vedika extends Application {
-    
-    //input by the user 
-      double numOfDays; 
-      double airFairAmount; 
-      double carRentalFee; 
-      double milesDriven;
-      double parkingFee; 
-      double taxiCharges; 
-      double registrationFee; 
-      double lodgingCharge;
-     
+   
     /**
      * @param args the command line arguments
      */
