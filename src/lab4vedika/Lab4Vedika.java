@@ -146,12 +146,24 @@ public class Lab4Vedika extends Application {
           });
         }
                 
-            // --- Helper methods ---
-             if (!isNumber(days.getText())) {
-                printError("Number of days must be a number.");
-                  return; // stop calculation
+            private boolean isNumber(String text) {
+                if (text == null || text.trim().isEmpty()) {
+                    return true; // blank is okay
                 }
 
+                text = text.trim(); // remove spaces
+
+                for (int i = 0; i < text.length(); i++) {
+                    char c = text.charAt(i);
+                    if ((c < '0' || c > '9') && c != '.') {
+                        return false; // not a number
+                    }
+                }
+
+                  return true; // all characters are digits or a dot
+            }
+
+ 
              
                 private void showError(String message) {
                    System.out.println("ERROR: " + message); // print error in console
