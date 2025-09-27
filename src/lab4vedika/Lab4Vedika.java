@@ -7,6 +7,7 @@ package lab4Vedika;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -95,7 +96,24 @@ public class Lab4Vedika extends Application {
         stage.setScene(scene);
         stage.setTitle("Travel expense Calculator");
         stage.show();
+        
+        //button to calculate
+        Button calculateBtn = new Button ("Calculate");
       
+        
+        //labels to display the results 
+           // --- Labels to display results ---
+        Label totalActualLabel = new Label("Total expenses: $0.00");
+        Label totalAllowedLabel = new Label("Allowed expenses: $0.00");
+        Label excessLabel = new Label("Excess to pay: $0.00");
+        Label savedLabel = new Label("Saved: $0.00");
+        
+        //method to handle errors
+        if (!isNumber(days.getText())) {
+           showError("Number of days must be a number.");
+           return; // stop calculation
+}
+
     }
 }
     
