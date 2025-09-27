@@ -20,7 +20,6 @@ import javafx.stage.Stage;
  * @author 6303129
  */
 public class Lab4Vedika extends Application {
-     
     
     //input by the user 
       double numOfDays; 
