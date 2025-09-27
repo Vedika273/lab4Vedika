@@ -66,24 +66,26 @@ public class Lab4Vedika extends Application {
         Label excessLabel = new Label("Excess to pay: $0.00");
         Label savedLabel = new Label("Saved: $0.00");
         
-         GridPane root = new GridPane();
+        GridPane root = new GridPane();
         root.add(numOfDaysLabel, 0, 0);
-        root.add(carRentalLabel, 0, 1);
-        root.add(milesDrivenLabel, 0, 2);
-        root.add(parkingFeeLabel, 0, 3);
-        root.add(taxiChargesLabel, 0, 4);
-        root.add(registrationFeeLabel, 0, 5);
-        root.add(lodgingChargesLabel, 0, 6);
+        root.add(airfairAmount, 0,1);
+        root.add(carRentalLabel, 0, 2);
+        root.add(milesDrivenLabel, 0, 3);
+        root.add(parkingFeeLabel, 0, 4);
+        root.add(taxiChargesLabel, 0, 5);
+        root.add(registrationFeeLabel, 0, 6);
+        root.add(lodgingChargesLabel, 0, 7);
         
         //adding the textFields to the gridPane
-        root.add(airFair, 1, 0);
-        root.add(carRental, 1,1);
-        root.add(milesDriventxt, 1,2);
-        root.add(parkingFeetxt, 1, 3);
-        root.add(TAXI, 1,4);
-        root.add(registration, 1,5);
-        root.add(lodging, 1,6);
-        root.add(calculateBtn,5,8);
+        root.add(days,1,0);
+        root.add(airFair, 1, 1);
+        root.add(carRental, 1,2);
+        root.add(milesDriventxt, 1,3);
+        root.add(parkingFeetxt, 1, 4);
+        root.add(TAXI, 1,5);
+        root.add(registration, 1,6);
+        root.add(lodging, 1,7);
+        root.add (calculateBtn,5,8);
         
          //labels to display the results
         root.add(totalActualLabel, 0, 8, 2, 1);
