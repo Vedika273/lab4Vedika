@@ -155,7 +155,24 @@ public class Lab4Vedika extends Application {
             double registrationVal = parseDouble(registration.getText());
             double lodgingVal = parseDouble(lodging.getText());
 
-          });
+         
+            // --- Company policy constants ---
+            double MEAL_ALLOWANCE_PER_DAY = 37.0;
+            double PARKING_ALLOWANCE_PER_DAY = 10.0;
+            double TAXI_ALLOWANCE_PER_DAY = 20.0;
+            double LODGING_ALLOWANCE_PER_DAY = 95.0;
+            double MILE_RATE = 0.27;
+            
+            // --- Calculate actual totals ---
+            double actualMeals = MEAL_ALLOWANCE_PER_DAY * daysVal;
+            double actualLodgingTotal = lodgingVal * daysVal;
+            double actualMileageExpense = milesVal * MILE_RATE;
+
+            double totalActual = airfareVal + carRentalVal + actualMileageExpense +
+                    parkingVal + taxiVal + registrationVal + actualLodgingTotal + actualMeals;
+            
+           
+        });
         }
                 
             private boolean isNumber(String text) {
