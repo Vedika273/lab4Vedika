@@ -171,7 +171,20 @@ public class Lab4Vedika extends Application {
             double totalActual = airfareVal + carRentalVal + actualMileageExpense +
                     parkingVal + taxiVal + registrationVal + actualLodgingTotal + actualMeals;
             
-           
+            
+            //calculate the allowed totals 
+            
+            double allowedMeals = Math.min(actualMeals, MEAL_ALLOWANCE_PER_DAY * daysVal);
+            double allowedParking = Math.min(parkingVal, PARKING_ALLOWANCE_PER_DAY * daysVal);
+            double allowedTaxi = Math.min(taxiVal, TAXI_ALLOWANCE_PER_DAY * daysVal);
+            double allowedLodging = Math.min(actualLodgingTotal, LODGING_ALLOWANCE_PER_DAY * daysVal);
+            double allowedMileage = actualMileageExpense;
+
+            double totalAllowed = airfareVal + carRentalVal + allowedMileage +
+                    allowedParking + allowedTaxi + registrationVal + allowedLodging + allowedMeals;
+
+            double excess = Math.max(0, totalActual - totalAllowed);
+            double saved = Math.max(0, totalAllowed - totalActual);
         });
         }
                 
