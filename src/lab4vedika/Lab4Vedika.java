@@ -108,14 +108,58 @@ public class Lab4Vedika extends Application {
         Label excessLabel = new Label("Excess to pay: $0.00");
         Label savedLabel = new Label("Saved: $0.00");
         
-        //method to handle errors
-        if (!isNumber(days.getText())) {
-           showError("Number of days must be a number.");
-           return; // stop calculation
-}
+       // --- Action when clicking calculate ---
+        calculateBtn.setOnAction(e -> {
+            // --- Validate inputs ---
+            if (!isNumber(days.getText())) {
+                showError("Number of days must be a number.");
+                return;
+            }
+            if (!isNumber(airFair.getText())) {
+                showError("Airfare must be a number.");
+                return;
+            }
+            if (!isNumber(carRental.getText())) {
+                showError("Car rental must be a number.");
+                return;
+            }
+            if (!isNumber(milesDriventxt.getText())) {
+                showError("Miles driven must be a number.");
+                return;
+            }
+            if (!isNumber(parkingFeetxt.getText())) {
+                showError("Parking fee must be a number.");
+                return;
+            }
+            if (!isNumber(TAXI.getText())) {
+                showError("Taxi charges must be a number.");
+                return;
+            }
+            if (!isNumber(registration.getText())) {
+                showError("Registration fee must be a number.");
+                return;
+            }
+            if (!isNumber(lodging.getText())) {
+                showError("Lodging charges must be a number.");
+                return;
+            }
+          });
+        }
+                
+            // --- Helper methods ---
+             if (!isNumber(days.getText())) {
+                printError("Number of days must be a number.");
+                  return; // stop calculation
+                }
+
+             
+                private void showError(String message) {
+                   System.out.println("ERROR: " + message); // print error in console
+    }
 
     }
-}
+
+
     
     
 
