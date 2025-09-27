@@ -143,6 +143,18 @@ public class Lab4Vedika extends Application {
                 showError("Lodging charges must be a number.");
                 return;
             }
+            
+            
+            //parse the user input (textField )to integer or double 
+            int daysVal = parseInt(days.getText());
+            double airfareVal = parseDouble(airFair.getText());
+            double carRentalVal = parseDouble(carRental.getText());
+            int milesVal = parseInt(milesDriventxt.getText());
+            double parkingVal = parseDouble(parkingFeetxt.getText());
+            double taxiVal = parseDouble(TAXI.getText());
+            double registrationVal = parseDouble(registration.getText());
+            double lodgingVal = parseDouble(lodging.getText());
+
           });
         }
                 
@@ -162,12 +174,19 @@ public class Lab4Vedika extends Application {
 
                   return true; // all characters are digits or a dot
             }
-
- 
-             
+            
                 private void showError(String message) {
                    System.out.println("ERROR: " + message); // print error in console
-    }
+            }
+                private int parseInt(String text) {
+                    if (text == null || text.trim().isEmpty()) return 0;
+                    return Integer.parseInt(text.trim());
+               }
+
+                private double parseDouble(String text) {
+                    if (text == null || text.trim().isEmpty()) return 0.0;
+                    return Double.parseDouble(text.trim());
+                }
 
     }
 
