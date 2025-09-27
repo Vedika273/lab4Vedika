@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package lab4Vedika;
+package lab4vedika;
 
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,7 +23,7 @@ public class Lab4Vedika extends Application {
      
     
     //input by the user 
-     double numOfDays; 
+      double numOfDays; 
       double airFairAmount; 
       double carRentalFee; 
       double milesDriven;
@@ -65,10 +66,18 @@ public class Lab4Vedika extends Application {
         
         Label lodgingChargesLabel = new Label("lodging charges : ");
         TextField lodging = new TextField();
-       
         
+        //button to calculate
+        Button calculateBtn = new Button ("Calculate");
+      
+        //labels to display the results 
+           // --- Labels to display results ---
+        Label totalActualLabel = new Label("Total expenses: $0.00");
+        Label totalAllowedLabel = new Label("Allowed expenses: $0.00");
+        Label excessLabel = new Label("Excess to pay: $0.00");
+        Label savedLabel = new Label("Saved: $0.00");
         
-        GridPane root = new GridPane();
+         GridPane root = new GridPane();
         root.add(numOfDaysLabel, 0, 0);
         root.add(carRentalLabel, 0, 1);
         root.add(milesDrivenLabel, 0, 2);
@@ -85,28 +94,18 @@ public class Lab4Vedika extends Application {
         root.add(TAXI, 1,4);
         root.add(registration, 1,5);
         root.add(lodging, 1,6);
+        root.add(calculateBtn,5,8);
+        
+         //labels to display the results
+        root.add(totalActualLabel, 0, 8, 2, 1);
+        root.add(totalAllowedLabel, 0, 9, 2, 1);
+        root.add(excessLabel, 0, 10, 2, 1);
+        root.add(savedLabel, 0, 11, 2, 1);
         
         root.setHgap(10);
         root.setVgap(10);
         root.setPadding(new Insets(10));
         
-     
-     
-        Scene scene = new Scene(root, 200, 200);
-        stage.setScene(scene);
-        stage.setTitle("Travel expense Calculator");
-        stage.show();
-        
-        //button to calculate
-        Button calculateBtn = new Button ("Calculate");
-      
-        
-        //labels to display the results 
-           // --- Labels to display results ---
-        Label totalActualLabel = new Label("Total expenses: $0.00");
-        Label totalAllowedLabel = new Label("Allowed expenses: $0.00");
-        Label excessLabel = new Label("Excess to pay: $0.00");
-        Label savedLabel = new Label("Saved: $0.00");
         
        // --- Action when clicking calculate ---
         calculateBtn.setOnAction(e -> {
@@ -173,7 +172,6 @@ public class Lab4Vedika extends Application {
             
             
             //calculate the allowed totals 
-            
             double allowedMeals = Math.min(actualMeals, MEAL_ALLOWANCE_PER_DAY * daysVal);
             double allowedParking = Math.min(parkingVal, PARKING_ALLOWANCE_PER_DAY * daysVal);
             double allowedTaxi = Math.min(taxiVal, TAXI_ALLOWANCE_PER_DAY * daysVal);
@@ -185,7 +183,19 @@ public class Lab4Vedika extends Application {
 
             double excess = Math.max(0, totalActual - totalAllowed);
             double saved = Math.max(0, totalAllowed - totalActual);
+            
+            //update the labels 
+            totalActualLabel.setText("Total expenses: $" + String.format("%.2f", totalActual));
+            totalAllowedLabel.setText("Allowed expenses: $" + String.format("%.2f", totalAllowed));
+            excessLabel.setText("Excess to pay: $" + String.format("%.2f", excess));
+            savedLabel.setText("Saved: $" + String.format("%.2f", saved));
+            
         });
+        
+            Scene scene = new Scene(root, 500, 500);
+            stage.setScene(scene);
+            stage.setTitle("Travel expense Calculator");
+            stage.show();
         }
                 
             private boolean isNumber(String text) {
@@ -217,7 +227,6 @@ public class Lab4Vedika extends Application {
                     if (text == null || text.trim().isEmpty()) return 0.0;
                     return Double.parseDouble(text.trim());
                 }
-
     }
 
 
