@@ -88,10 +88,10 @@ public class Lab4Vedika extends Application {
         root.add (calculateBtn,5,8);
         
          //labels to display the results
-        root.add(totalActualLabel, 0, 8, 2, 1);
-        root.add(totalAllowedLabel, 0, 9, 2, 1);
-        root.add(excessLabel, 0, 10, 2, 1);
-        root.add(savedLabel, 0, 11, 2, 1);
+        root.add(totalActualLabel, 0, 12, 2, 1);
+        root.add(totalAllowedLabel, 0, 13, 2, 1);
+        root.add(excessLabel, 0, 14, 2, 1);
+        root.add(savedLabel, 0, 15, 2, 1);
         
         root.setHgap(10);
         root.setVgap(10);
@@ -185,6 +185,7 @@ public class Lab4Vedika extends Application {
         
             Scene scene = new Scene(root, 500, 500);
             stage.setScene(scene);
+            scene.getStylesheets().add("design.css");
             stage.setTitle("Travel expense Calculator");
             stage.show();
         }
