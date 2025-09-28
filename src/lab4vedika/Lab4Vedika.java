@@ -16,8 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
- *
- * @author 6303129
+ * @author Vedika Jain 
  */
 public class Lab4Vedika extends Application {
    
@@ -209,11 +208,11 @@ public class Lab4Vedika extends Application {
             
                 private void showError(String message) {
                    System.out.println("ERROR: " + message); // print error in console
-            }
+                }
                 private int parseInt(String text) {
                     if (text == null || text.trim().isEmpty()) return 0;
                     return Integer.parseInt(text.trim());
-               }
+                }
 
                 private double parseDouble(String text) {
                     if (text == null || text.trim().isEmpty()) return 0.0;
